@@ -1,13 +1,27 @@
 const moment = require('moment');
+const { exec } = require('child_process');
 const PiCamera = require('./services/piCameraService');
+const FolderService = require('./services/folderService');
 
 let now = moment();
-let timeStamp = now.format("YYYY-MM-DD HH:mm Z");
-let unixTime = now.unix('X');
-const piCamera = new PiCamera(unixTime);
+let date = now.format("YYYY-MM-DD");
+
+const piCamera = new PiCamera(now);
+const folderService = new FolderService()
 
 try {
-    console.log(`Start recording at ${timeStamp}`);
+    console.log(`Start recording at ${now.format("YYYY-MM-DD HH:mm Z")}`);
+    exec('sh shellscript/checkAliceNasMount.sh', (err, stdout, stderr) => {
+        if (err) {
+            throw err;
+        }
+
+        // the *entire* stdout and stderr (buffered)
+        console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+    });
+
+    folderService.checkFolderExist(date);
     piCamera.recordVideo();
 }
 catch (err) {

@@ -1,12 +1,10 @@
 const fs = require('fs');
 
 class folderService {
-    checkFolderExist(date) {
-
-    }
-
-    createFolder(date) {
-
+    checkFolderExist(dirName) {
+        if (!fs.existsSync(dirName)) {
+            fs.mkdirSync(dirName);
+        }
     }
 }
 
