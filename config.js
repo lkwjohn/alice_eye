@@ -1,0 +1,3 @@
+const RECORD_TIME_IN_MIL_SECONDS = 3600000
+
+module.exports = { RECORD_TIME_IN_MIL_SECONDS }

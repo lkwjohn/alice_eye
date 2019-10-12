@@ -7,7 +7,7 @@ describe('piCameraService', () => {
         piCamera = new PiCamera();
     })
 
-    xdescribe('recordVideo', () => {
+    describe('recordVideo', () => {
 
         test('Start record video', () => {
             piCamera.recordVideo();

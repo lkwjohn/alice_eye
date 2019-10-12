@@ -1,0 +1,19 @@
+Start recording at Sat Oct 12 2019 19:04:01 GMT+0800 (Singapore Standard Time)
+Start recording at Sat Oct 12 2019 19:05:02 GMT+0800 (Singapore Standard Time)
+Start recording at Sat Oct 12 2019 19:06:02 GMT+0800 (Singapore Standard Time)
+>>> /bin/sh: 1: Syntax error: "(" unexpected
+
+Start recording at Sat Oct 12 2019 19:07:02 GMT+0800 (Singapore Standard Time)
+>>> /bin/sh: 1: Syntax error: "(" unexpected
+
+Start recording at Sat Oct 12 2019 19:08:01 GMT+0800 (Singapore Standard Time)
+>>> /bin/sh: 1: Syntax error: "(" unexpected
+
+Start recording at Sat Oct 12 2019 19:09:01 GMT+0800 (Singapore Standard Time)
+>>> /bin/sh: 1: Syntax error: "(" unexpected
+
+Start recording at 2019-10-12 19:10 +08:00
+>>> Invalid command line option (19:10)
+
+Start recording at 2019-10-12 20:00 +08:00
+RECORD_TIME_IN_MIL_SECONDS 36000
