@@ -28,5 +28,5 @@ try {
 catch (err) {
     const emailService = new EmailService();
     emailService.sendMessage(`Alice Eyes Find an Error ${err.message}`, err.stack);
-    console.log('Error ', err);
+    console.log('Alice Eye Error:', err);
 }
