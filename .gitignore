@@ -1,1 +1,4 @@
 /node_modules/*
+config.js
+services/credentials.json
+services/authentication.json
