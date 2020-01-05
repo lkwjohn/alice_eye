@@ -2,3 +2,4 @@
 config.js
 services/credentials.json
 services/authentication.json
+/tmp/*
