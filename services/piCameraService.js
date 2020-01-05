@@ -1,6 +1,5 @@
 const PiCamera = require('pi-camera');
 const { RECORD_TIME_IN_MIL_SECONDS } = require('../config')
-const folderSrevice = require('./folderService')
 
 class piCamera {
 
@@ -17,10 +16,6 @@ class piCamera {
 
     recordVideo(now) {
         this.myCamera.record()
-            .then(() => {
-                folderSrevice.move(`/home/pi/alice_eye/tmp/${now.format('HHmm-DD-MM-YYYY')}.h264`,
-                    `/mnt/alice_nas/${now.format('YYYY-MM-DD')}/${now.format('HHmm-DD-MM-YYYY')}.h264`)
-            })
             .catch((error) => {
                 console.log('>>>', error)
                 throw error;
