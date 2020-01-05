@@ -1,21 +1,26 @@
 const PiCamera = require('pi-camera');
 const { RECORD_TIME_IN_MIL_SECONDS } = require('../config')
+const folderSrevice = require('./folderService')
 
 class piCamera {
 
     constructor(now) {
         this.myCamera = new PiCamera({
             mode: 'video',
-            output: `/mnt/alice_nas/${now.format('YYYY-MM-DD')}/${now.format('HHmm-DD-MM-YYYY')}.h264`,
-            width: 730,
-            height: 1296,
+            output: `/home/pi/alice_eye/tmp/${now.format('HHmm-DD-MM-YYYY')}.h264`,
+            width: 480,
+            height: 640,
             timeout: RECORD_TIME_IN_MIL_SECONDS ? RECORD_TIME_IN_MIL_SECONDS : 6000, // Record for 5 seconds 2592 1944
             nopreview: true,
         });
     }
 
-    recordVideo() {
+    recordVideo(now) {
         this.myCamera.record()
+            .then(() => {
+                folderSrevice.move(`/home/pi/alice_eye/tmp/${now.format('HHmm-DD-MM-YYYY')}.h264`,
+                    `/mnt/alice_nas/${now.format('YYYY-MM-DD')}/${now.format('HHmm-DD-MM-YYYY')}.h264`)
+            })
             .catch((error) => {
                 console.log('>>>', error)
                 throw error;

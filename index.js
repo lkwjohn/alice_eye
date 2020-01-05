@@ -23,7 +23,7 @@ try {
     });
 
     folderService.checkFolderExist(date);
-    piCamera.recordVideo();
+    piCamera.recordVideo(now);
 }
 catch (err) {
     const emailService = new EmailService();
