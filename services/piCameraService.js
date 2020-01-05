@@ -1,5 +1,6 @@
 const PiCamera = require('pi-camera');
 const { RECORD_TIME_IN_MIL_SECONDS } = require('../config')
+const { exec } = require('child_process');
 
 class piCamera {
 
@@ -14,8 +15,18 @@ class piCamera {
         });
     }
 
-    recordVideo(now) {
+    recordVideo(now, date) {
         this.myCamera.record()
+            .then(() => {
+                exec(`sh /home/pi/alice_eye/shellscript/moveFile.sh ${now.format('HHmm-DD-MM-YYYY')}.h264 ${date}`, (err, stdout, stderr) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    // the *entire* stdout and stderr (buffered)
+                    console.log(`Moving`);
+                });
+            })
             .catch((error) => {
                 console.log('>>>', error)
                 throw error;

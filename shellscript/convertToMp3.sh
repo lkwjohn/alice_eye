@@ -1,4 +1,5 @@
 #!/bin/bash
+#sudo apt-get install gpac to use MP4Box
 date=$(date '+%Y-%m-%d')
 
 cd "/mnt/alice_nas/$date"
